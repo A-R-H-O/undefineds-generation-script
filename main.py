@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import random
+import os
 
 # Name rarity? (Common adjectives/titles, rare ones, etc.) More adjectives and titles needed.
 adjectives = [
@@ -10,9 +11,9 @@ titles = [
   'Thoughts', 'Problems', 'Malware', 'Mess', 'Philiographia', 'Terminality', 'Malignancy', 'Perfection', 'Impurity', 'Compiler'
 ]
 
-name = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.randint(0, len(titles)-1)]}"
+tokenname = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.randint(0, len(titles)-1)]}"
 
-photo = Image.open('back.jpg')
+photo = Image.open('back.png')
 draw = ImageDraw.Draw(photo)
 width, height = photo.size
 
@@ -37,7 +38,7 @@ shapes = 60
 top_images = 0
 
 def glitchbranch():
-  branch_count = random.randint(2, 5)
+  branch_count = random.randint(5, 15)
   for _ in range(branch_count):
     fillcol = randcolor()
     branch_pos = random.randint(10, 500)
@@ -46,7 +47,7 @@ def glitchbranch():
 def shards():
   shard_count = random.randint(0, 5)
   for _ in range(shard_count):
-    fillcol = 0
+    fillcol = randcolor()
     x_1 = random.randint(0, width)
     y_1 = random.randint(0, height)
     x_2 = x_1 + random.randint(5, 20)
@@ -96,8 +97,9 @@ for f in range(count):
   for _ in range(shapes):
     shape_drag()
     glitchbranch()
+    shards()
 
   shape_drag()
   photo.save(f'nft{f + 1}.png')
   print(width, height)
-  print(name)
+  print(tokenname)
