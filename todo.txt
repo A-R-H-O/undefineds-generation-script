@@ -1,0 +1,14 @@
+Python
+- Learn OS module
+- Review Python
+
+NFT
+- Card Format with description
+- Different main types (E.g. monochrome, colorful)
+- More artistic, but still mad
+- Filters?
+- Color Schemes ★
+- Website (GitHub Page or GitBook!) ★
+
+Presentation
+- Fix Script (ETH/Ether part, general)
