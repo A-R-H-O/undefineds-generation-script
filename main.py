@@ -13,7 +13,7 @@ titles = [
 
 tokenname = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.randint(0, len(titles)-1)]}"
 
-photo = Image.open('back.jpg')
+photo = Image.open('back.png')
 draw = ImageDraw.Draw(photo)
 width, height = photo.size
 
@@ -71,7 +71,7 @@ def schemealt():
 
 draw.rectangle((0, 0, width, height), fill=(255, 255, 255))
 draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
-photo.save('back.jpg')
+photo.save('back.png')
 
 count = 1
 shapes = 60
@@ -121,7 +121,7 @@ def shape_drag():
       start_y -= y_dir
 
 for f in range(count):
-  photo = Image.open('back.jpg')
+  photo = Image.open('back.png')
   draw = ImageDraw.Draw(photo)
 
   for _ in range(shapes):
