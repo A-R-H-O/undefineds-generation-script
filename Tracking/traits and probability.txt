@@ -1,0 +1,6 @@
+Filters:
+  Monochrome: 20%
+  Color: 80%
+
+Traits:
+  Censorship: 50%

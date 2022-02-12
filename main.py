@@ -2,7 +2,8 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 import os
 
-# Name rarity? (Common adjectives/titles, rare ones, etc.) More adjectives and titles needed.
+totalrarity = 0
+
 adjectives = [
   'Sublime', 'Abhorrent', 'Introverted', 'Mind of', 'Ceasing', 'The', 'Ostracized', 'Modular', 'Weirdcore', 'Hash'
 ]
@@ -13,24 +14,16 @@ titles = [
 
 tokenname = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.randint(0, len(titles)-1)]}"
 
-photo = Image.open('back.png')
-draw = ImageDraw.Draw(photo)
-width, height = photo.size
-
-def randcolor():
-  r = random.randint(50, 200)
-  g = random.randint(50, 200)
-  b = random.randint(50, 200)
-  return r, g, b
-
 # Filter Selector
 artfilter = random.randint(1, 5)
-if artfilter > 5: #20% chance of Monochrome
-  artfilter = 'col'
+if artfilter != 5: 
+  artfilter = 'col' #80% for Color
   colrange = 4
+  totalrarity += 10
 else:
-  artfilter = 'mono' #80% chance of Color
+  artfilter = 'mono' #20% for Monochrome
   colrange = 3
+  totalrarity += 50
 
 # --- Scheme Selector --- #
 cols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)] 
@@ -53,7 +46,7 @@ while True:
 
 if artfilter == 'col':
   firstcol = cols[firstcolsel]
-  secondcolsel = cols[secondcolsel]
+  secondcol = cols[secondcolsel]
 elif artfilter == 'mono':
   firstcol = monos[firstcolsel]
   secondcol= monos[secondcolsel]
@@ -68,14 +61,18 @@ def schemealt():
 
 # -- Trait Selector --- #
 
+# Build trait selector when done with all the traits
 
-draw.rectangle((0, 0, width, height), fill=(255, 255, 255))
-draw.rectangle((0, 0, width, height), fill=(0, 0, 0))
-photo.save('back.png')
+# --- Trait Selector End --- #
 
 count = 1
 shapes = 60
 
+photo = Image.open('back.png')
+draw = ImageDraw.Draw(photo)
+width, height = photo.size
+
+# --- Traits --- #
 def glitchbranch():
   branch_count = random.randint(5, 15)
   for _ in range(branch_count):
@@ -91,7 +88,7 @@ def shards():
     y_1 = random.randint(0, height)
     x_2 = x_1 + random.randint(5, 20)
     y_2 = y_1 + random.randint(5, 20)
-    draw.line((x_1, y_1, x_2, y_2), width=random.randint(20, 40), fill=fillcol)
+    draw.rectangle((x_1, y_1, x_2, y_2), outline=schemealt())
 
 def censorship():
   censor_count = random.randint(0, 5)
@@ -103,7 +100,12 @@ def censorship():
     draw.line((x_1, y_1, x_2, y_1), width=random.randint(40, 80), fill=0)
 
 def shape_drag():
-  draglen = random.randint(3, 10)
+  isstair = random.randint(1, 2)
+  if isstair == 1:
+    draglen = random.randint(3, 10)
+  elif isstair == 2:
+    draglen = 100
+
   start_x = random.randint(0, width)
   start_y = random.randint(0, height)
   size = 200
@@ -120,6 +122,9 @@ def shape_drag():
       start_x += x_dir
       start_y -= y_dir
 
+# --- Traits End --- #
+
+# --- Generator --- #
 for f in range(count):
   photo = Image.open('back.png')
   draw = ImageDraw.Draw(photo)
@@ -127,10 +132,14 @@ for f in range(count):
   for _ in range(shapes):
     shape_drag()
     glitchbranch()
+    censorship()
+    shards()
 
   shape_drag()
-  censorship()
+
   photo.save(f'nft{f + 1}.png')
   print(width, height)
   print(rerollspecialty, firstcol, secondcol)
   print(tokenname)
+  print(totalrarity)
+# --- Generator End --- #

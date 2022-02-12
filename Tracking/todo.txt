@@ -34,13 +34,13 @@ Presentation
 
 - To Do (Main):
     Log probabilities and traits, and how they work.
-    Stair
+    2D => 3D
     Seperate censor bars
-    Fix color
     Triangles
     Layered squares (Stretched?)
     Shapes briding off the walls
     Other things to improve it
+    Make all NFTs look nice
 
     Incoporate more traits
     Incorporate more of a probability basis
@@ -49,16 +49,16 @@ Presentation
     Super pixely theme (High outline/width or whatever for it)
 
 - Polygon it is!
-    1k NFTs (need enough traits and things to create 1k unique NFTs)
+    10k NFTs (need enough traits and things to create 1k unique NFTs)
     NFT Trait Tracker (writes to a file, scans it, prevents NFTs from being identical or similar)
 
     Math:
-        If you have 1k NFTs ranging from $3-$5, you could make a lot of money.
+        If you have 10k NFTs ranging from $3-$5, you could make a lot of money.
         Quanity > Cost
-        In theory, you could make a few bucks ($20-$40, still good), to (100-1k+), which either way is good.
+        In theory, you could make a few bucks hundred bucks, or a couple thousand, which either way is good.
         If sales go good, increase the price.
 
-    Again, in order to create 1k NFTs, you need to create enough traits, colors, names, and other things for each of them to be unique.
+    Again, in order to create 10k NFTs, you need to create enough traits, colors, names, and other things for each of them to be unique.
 
     Cost calculation system is required. 
     Metadata system or whatever is required too, I suggest you learn about it.
