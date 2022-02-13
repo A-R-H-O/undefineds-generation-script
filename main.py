@@ -67,9 +67,9 @@ def schemealt():
 shapes = 60
 count = 1
 
-photo = Image.open('back.png')
-draw = ImageDraw.Draw(photo)
-width, height = photo.size
+art = Image.open('back.png')
+draw = ImageDraw.Draw(art)
+width, height = art.size
 
 # --- Traits --- #
 def glitchbranch():
@@ -147,12 +147,19 @@ def triangles():
 
     draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=5)
 
+def rotate():
+  global art
+  global rotation
+  # Left: 0, Down: 1, Right: 2, Up: 3
+  rotation = random.randint(0, 3)
+  art = art.rotate(rotation * 90)
+
 # --- Traits End --- #
 
 # --- Generator --- #
 for f in range(count):
-  photo = Image.open('back.png')
-  draw = ImageDraw.Draw(photo)
+  art = Image.open('back.png')
+  draw = ImageDraw.Draw(art)
 
   for _ in range(shapes):
     shape_drag()
@@ -161,11 +168,13 @@ for f in range(count):
     shards()
     triangles()
 
+  rotate()
   shape_drag()
-  photo.save(f'nft{f + 1}.png')
+  art.save(f'nft{f + 1}.png')
 
   print(width, height)
   print(rerollspecialty, firstcol, secondcol)
   print(tokenname)
   print(totalrarity)
+  print(rotation)
 # --- Generator End --- #
