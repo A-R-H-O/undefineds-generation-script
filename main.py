@@ -66,6 +66,7 @@ def schemealt():
 # --- Trait Selector End --- #
 shapes = 60
 count = 1
+shapewidth = random.randint(1, 30)
 
 art = Image.open('back.png')
 draw = ImageDraw.Draw(art)
@@ -115,9 +116,9 @@ def shape_drag():
 
   for f in range(draglen):
     if f < 1:
-      draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=5)
+      draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
     else:
-      draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=5)
+      draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
       start_x += x_dir
       start_y -= y_dir
 
@@ -134,7 +135,7 @@ def triangles():
     x_3 = random.randint(20, (height - random.randint(50, 200)))
     y_3 = random.randint(0, (height - random.randint(50, 200)))
 
-    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=5)
+    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
   elif side == 2:
     x_1 = width
     y_1 = random.randint(0, height)
@@ -145,7 +146,7 @@ def triangles():
     x_3 = random.randint(20, (height + random.randint(50, 200)))
     y_3 = random.randint(width, (height + random.randint(50, 200)))
 
-    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=5)
+    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
 
 def rotate():
   global art
@@ -167,6 +168,7 @@ for f in range(count):
     censorship()
     shards()
     triangles()
+    
 
   rotate()
   shape_drag()

@@ -43,8 +43,6 @@ Presentation
 
         Can be changed with different traits, direction changes, rotation, and other things
 
-    Seed
-
     Stair direction change
     Walls of drag/stairs?
 
