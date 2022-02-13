@@ -34,13 +34,53 @@ Presentation
 
 - To Do (Main):
     Log probabilities and traits, and how they work.
-    2D => 3D
-    Seperate censor bars
-    Triangles
+    More names
+    Fix shards and other traits that could need fixing or improvement
+
+    What do we wanna focus on and tackle in order before we come up with any new ideas?
+
+    NFTs feel too similar
+
+        Can be changed with different traits, direction changes, rotation, and other things
+
+    Seed
+
+    Stair direction change
+    Walls of drag/stairs?
+
+    Random colors, but with a scheme
+        
+        Only one of each color per NFT
+
+        Pervents colors that are too similar or ugly from being used
+
+        Must be in NFT color scheme
+
+    GIFs!
+
+        Of the generation per step
+
+        Save each generation iteration as an image
+
+        Throw it as at an Image.save as a GIF with all the frames, then you're set.
+
+    Trait Generating Algorithm
+
+        Unqiue to each NFT, or a group of them
+
+        Algorithm that basically creates different traits so you don't have to.
+
+            Uses different shapes, colors, and things with an algorithm to create them, then applies it to a single one or a group of them.
+
+                Could possibly give it a name.
+
+        Could be better or worse than having to create a bunch by hand, think this through.
+
+
     Layered squares (Stretched?)
-    Shapes briding off the walls
     Other things to improve it
     Make all NFTs look nice
+    
 
     Incoporate more traits
     Incorporate more of a probability basis
@@ -48,8 +88,13 @@ Presentation
     Do something/add something with reroll specialty
     Super pixely theme (High outline/width or whatever for it)
 
+    Different way to calculate cost asides for traits?
+
 - Polygon it is!
     10k NFTs (need enough traits and things to create 1k unique NFTs)
+
+    How can we generate 10k unique NFTs?
+
     NFT Trait Tracker (writes to a file, scans it, prevents NFTs from being identical or similar)
 
     Math:

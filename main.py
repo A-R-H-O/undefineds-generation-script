@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import random
 import os
 
@@ -64,9 +64,8 @@ def schemealt():
 # Build trait selector when done with all the traits
 
 # --- Trait Selector End --- #
-
-count = 1
 shapes = 60
+count = 1
 
 photo = Image.open('back.png')
 draw = ImageDraw.Draw(photo)
@@ -77,7 +76,7 @@ def glitchbranch():
   branch_count = random.randint(5, 15)
   for _ in range(branch_count):
     fillcol = schemealt()
-    branch_pos = random.randint(10, 500)
+    branch_pos = random.randint(0, width)
     draw.rectangle((0, branch_pos, width, height), outline=schemealt())
 
 def shards():
@@ -122,6 +121,32 @@ def shape_drag():
       start_x += x_dir
       start_y -= y_dir
 
+def triangles():
+  # Left: 1, Right: 2
+  side = random.randint(1, 2)
+  if side == 1:
+    x_1 = 0
+    y_1 = random.randint(0, height)
+
+    x_2 = 0
+    y_2 = random.randint(0, height)
+
+    x_3 = random.randint(20, (height - random.randint(50, 200)))
+    y_3 = random.randint(0, (height - random.randint(50, 200)))
+
+    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=5)
+  elif side == 2:
+    x_1 = width
+    y_1 = random.randint(0, height)
+
+    x_2 = width
+    y_2 = y_1 - random.randint(50, 200)
+
+    x_3 = random.randint(20, (height + random.randint(50, 200)))
+    y_3 = random.randint(width, (height + random.randint(50, 200)))
+
+    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=5)
+
 # --- Traits End --- #
 
 # --- Generator --- #
@@ -134,10 +159,11 @@ for f in range(count):
     glitchbranch()
     censorship()
     shards()
+    triangles()
 
   shape_drag()
-
   photo.save(f'nft{f + 1}.png')
+
   print(width, height)
   print(rerollspecialty, firstcol, secondcol)
   print(tokenname)
