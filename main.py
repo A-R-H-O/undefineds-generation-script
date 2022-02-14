@@ -64,7 +64,15 @@ def schemealt():
 # Build trait selector when done with all the traits
 
 # --- Trait Selector End --- #
-shapes = 60
+shapes = 60 
+# Looks good with 90 too. Experiment with different shape counts.
+# Shape count randomization would be perfect
+# Shape count => rarity and value
+
+# If you set it to a really low number like 1-3-5 you could probably get some cool results.
+# Further experimentation is required.
+
+
 count = 1
 shapewidth = random.randint(1, 30)
 
