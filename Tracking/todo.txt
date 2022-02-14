@@ -39,10 +39,6 @@ Presentation
 
     What do we wanna focus on and tackle in order before we come up with any new ideas?
 
-    NFTs feel too similar
-
-        Can be changed with different traits, direction changes, rotation, and other things
-
     Stair direction change
     Walls of drag/stairs?
 
@@ -61,6 +57,10 @@ Presentation
         Save each generation iteration as an image
 
         Throw it as at an Image.save as a GIF with all the frames, then you're set.
+
+        NFTs with a lower width can be GIFs
+
+        This can overall make NFTs with a lower width more rare
 
     Trait Generating Algorithm
 
