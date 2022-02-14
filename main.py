@@ -67,7 +67,7 @@ def schemealt():
 shapes = 60 
 # Looks good with 90 too. Experiment with different shape counts.
 # Shape count randomization would be perfect
-# Shape count => rarity and value
+# Shape count => rarity and value => how cool it overall looks => potential (GIFs, colors, features, etc.)
 
 # If you set it to a really low number like 1-3-5 you could probably get some cool results.
 # Further experimentation is required.
