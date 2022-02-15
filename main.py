@@ -16,7 +16,7 @@ tokenname = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.
 
 # Filter Selector
 artfilter = random.randint(1, 5)
-if artfilter != 5: 
+if artfilter != 5:
   artfilter = 'col' #80% for Color
   colrange = 4
   totalrarity += 10
@@ -64,10 +64,13 @@ def schemealt():
 # Build trait selector when done with all the traits
 
 # --- Trait Selector End --- #
-shapes = 60 
+shapes = 90
 # Looks good with 90 too. Experiment with different shape counts.
 # Shape count randomization would be perfect
-# Shape count => rarity and value => how cool it overall looks => potential (GIFs, colors, features, etc.)
+# Shape count => rarity and value
+# The more the shapes, the cooler it looks
+# More shapes could pose an issue to GIFs (maybe animations)
+# Medium shape count VS High/Very High shape count
 
 # If you set it to a really low number like 1-3-5 you could probably get some cool results.
 # Further experimentation is required.
