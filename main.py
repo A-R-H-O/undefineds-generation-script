@@ -26,7 +26,15 @@ else:
   totalrarity += 50
 
 # --- Scheme Selector --- #
-cols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)] 
+r1 = random.randint(70, 255)
+r2 = random.randint(70, 255)
+r3 = random.randint(70, 255)
+r4 = random.randint(70, 255)
+r5 = random.randint(70, 255)
+
+cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
+
+oldcols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)]
 # Red: 0, Purple: 1, Yellow: 2, Blue: 3, Gray: 4
 
 monos = [(0, 0, 0), (255, 255, 255), (33, 33, 33), (112, 112, 112)]
@@ -187,7 +195,7 @@ for f in range(count):
 
   print(width, height)
   print(rerollspecialty, firstcol, secondcol)
-  print(tokenname)
+  print(f"{tokenname} | {artfilter} | {shapewidth}")
   print(totalrarity)
   print(rotation)
 # --- Generator End --- #
