@@ -32,10 +32,15 @@ r3 = random.randint(70, 255)
 r4 = random.randint(70, 255)
 r5 = random.randint(70, 255)
 
-cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
+colsel = random.randint(0, 2)
 
-oldcols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)]
-# Red: 0, Purple: 1, Yellow: 2, Blue: 3, Gray: 4
+if colsel == 0:
+  cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
+elif colsel == 1:
+  cols = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))]
+elif colsel == 2:
+  cols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)]
+  # Red: 0, Purple: 1, Yellow: 2, Blue: 3, Gray: 4
 
 monos = [(0, 0, 0), (255, 255, 255), (33, 33, 33), (112, 112, 112)]
 # Black: 0, White: 1, Dark Gray: 2, Light Gray: 3
@@ -85,7 +90,7 @@ shapes = 90
 
 
 count = 1
-shapewidth = random.randint(1, 30)
+shapewidth = random.randint(1, 20)
 
 art = Image.open('back.png')
 draw = ImageDraw.Draw(art)
@@ -95,14 +100,12 @@ width, height = art.size
 def glitchbranch():
   branch_count = random.randint(5, 15)
   for _ in range(branch_count):
-    fillcol = schemealt()
     branch_pos = random.randint(0, width)
     draw.rectangle((0, branch_pos, width, height), outline=schemealt())
 
 def shards():
   shard_count = random.randint(0, 5)
   for _ in range(shard_count):
-    fillcol = schemealt()
     x_1 = random.randint(0, width)
     y_1 = random.randint(0, height)
     x_2 = x_1 + random.randint(5, 20)
@@ -129,7 +132,9 @@ def shape_drag():
   start_y = random.randint(0, height)
   size = 200
 
-  dirlist = [10, -10]
+  dirlist = [20, -20]
+  altdirlist = [20, -20, 10, -10]
+
   x_dir =  dirlist[random.randint(0, 1)]
   y_dir = dirlist[random.randint(0, 1)]
 
@@ -195,7 +200,7 @@ for f in range(count):
 
   print(width, height)
   print(rerollspecialty, firstcol, secondcol)
-  print(f"{tokenname} | {artfilter} | {shapewidth}")
+  print(f"{tokenname} | {artfilter} | {shapewidth} | {colsel}")
   print(totalrarity)
   print(rotation)
 # --- Generator End --- #
