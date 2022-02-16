@@ -101,7 +101,7 @@ def glitchbranch():
   branch_count = random.randint(5, 15)
   for _ in range(branch_count):
     branch_pos = random.randint(0, width)
-    draw.rectangle((0, branch_pos, width, height), outline=schemealt())
+    draw.rectangle((0, branch_pos, width + 20, height + 20), outline=0, width=10)
 
 def shards():
   shard_count = random.randint(0, 5)
