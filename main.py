@@ -132,7 +132,13 @@ def shape_drag():
   start_y = random.randint(0, height)
   size = 200
 
-  dirlist = [20, -20]
+  dirval = random.randint(1, 5)
+  dirval2 = random.randint(1, 5)
+
+  dirlist = [(dirval * 10), (dirval2 * -10)]
+
+  dirlistrand = [random.randint(1, 5) * 10, random.randint(1, 5) * -10]
+
   altdirlist = [20, -20, 10, -10]
 
   x_dir =  dirlist[random.randint(0, 1)]

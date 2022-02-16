@@ -8,3 +8,20 @@
     Triangle drag
     Improved (Randomized) Monochrome
     Light outline boxes in the background
+
+    Different widths and aspects of traits should
+    be randomized and based off probability
+
+    (For example the width on the glitch branches
+    should be randomized and based off probability)
+
+    Drag incremental distance should be changed
+
+    Everything should mash up together and give the
+    vibe that you describe. Randomization, probability,
+    and different traits and things should be
+    incoporated.
+
+    Colors should matchup and always look good with
+    eachother. (Improved color system, color matching
+    system.)
