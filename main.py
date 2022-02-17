@@ -129,6 +129,7 @@ def censorship():
       draw.line((x_1, y_1, x_2, y_1), width=random.randint(40, 80), fill=0)
 
 def shape_drag():
+  dirchangeinterval = random.randint(10, 60)
   isstair = random.randint(1, 2)
   if isstair == 1:
     draglen = random.randint(3, 10)
@@ -155,9 +156,12 @@ def shape_drag():
     if f < 1:
       draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
     else:
-      draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
-      start_x += x_dir
-      start_y -= y_dir
+      mathtype1 = random.randint(1, 2)
+      mathtype2 = random.randint(1, 2)
+      if f != dirchangeinterval:
+        draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
+        start_x += x_dir
+        start_y -= y_dir
 
 def triangles():
   # Left: 1, Right: 2

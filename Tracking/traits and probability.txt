@@ -12,3 +12,13 @@ Glyphs: (Shards with black outline, thicker width)
 Probabilty should be different traits modified
 (including colors), randomized, probabilitized
 and looking good
+
+Code for jumbling
+if mathtype1 == 1:
+          start_x += x_dir
+        elif mathtype1 == 2:
+          start_x -= x_dir
+        if mathtype2 == 1:
+          start_y += y_dir
+        elif mathtype2 == 2:
+          start_y -= y_dir
