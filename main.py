@@ -33,6 +33,7 @@ r4 = random.randint(70, 255)
 r5 = random.randint(70, 255)
 
 colsel = random.randint(0, 2)
+monosel = random.randint(0, 1)
 
 if colsel == 0:
   cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
@@ -42,8 +43,12 @@ elif colsel == 2:
   cols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)]
   # Red: 0, Purple: 1, Yellow: 2, Blue: 3, Gray: 4
 
-monos = [(0, 0, 0), (255, 255, 255), (33, 33, 33), (112, 112, 112)]
-# Black: 0, White: 1, Dark Gray: 2, Light Gray: 3
+if monosel == 0:
+  monos = [(0, 0, 0), (255, 255, 255), (33, 33, 33), (112, 112, 112)]
+  # Black: 0, White: 1, Dark Gray: 2, Light Gray: 3
+elif monosel == 1:
+  monos = [(r1, r1, r1), (r2, r2, r2), (r3, r3, r3), (r4, r4, r4)]
+
 
 rerollspecialty = 0
 firstcolsel = random.randint(0, colrange)
@@ -98,28 +103,30 @@ width, height = art.size
 
 # --- Traits --- #
 def glitchbranch():
-  branch_count = random.randint(5, 15)
-  for _ in range(branch_count):
-    branch_pos = random.randint(0, width)
-    draw.rectangle((0, branch_pos, width + 20, height + 20), outline=0, width=10)
+  for _ in range(0):
+    branch_count = random.randint(5, 15)
+    for _ in range(branch_count):
+      branch_pos = random.randint(0, width)
+      draw.rectangle((0, branch_pos, width + 20, height + 20), outline=0, width=10)
 
 def shards():
   shard_count = random.randint(0, 5)
   for _ in range(shard_count):
     x_1 = random.randint(0, width)
     y_1 = random.randint(0, height)
-    x_2 = x_1 + random.randint(5, 20)
-    y_2 = y_1 + random.randint(5, 20)
-    draw.rectangle((x_1, y_1, x_2, y_2), outline=schemealt())
+    x_2 = x_1 + random.randint(5, 50)
+    y_2 = y_1 + random.randint(5, 50)
+    draw.rectangle((x_1, y_1, x_2, y_2), outline=0, width=10)
 
 def censorship():
-  censor_count = random.randint(0, 5)
-  for _ in range(censor_count):
-    x_1 = random.randint(0, width)
-    y_1 = random.randint(0, height)
-    x_2 = x_1 + random.randint(200, 300)
-    y_2 = y_1 + random.randint(200, 300)
-    draw.line((x_1, y_1, x_2, y_1), width=random.randint(40, 80), fill=0)
+  for _ in range(0):
+    censor_count = random.randint(0, 5)
+    for _ in range(censor_count):
+      x_1 = random.randint(0, width)
+      y_1 = random.randint(0, height)
+      x_2 = x_1 + random.randint(200, 300)
+      y_2 = y_1 + random.randint(200, 300)
+      draw.line((x_1, y_1, x_2, y_1), width=random.randint(40, 80), fill=0)
 
 def shape_drag():
   isstair = random.randint(1, 2)
@@ -154,29 +161,30 @@ def shape_drag():
 
 def triangles():
   # Left: 1, Right: 2
-  side = random.randint(1, 2)
-  if side == 1:
-    x_1 = 0
-    y_1 = random.randint(0, height)
+  for _ in range(0):
+    side = random.randint(1, 2)
+    if side == 1:
+      x_1 = 0
+      y_1 = random.randint(0, height)
 
-    x_2 = 0
-    y_2 = random.randint(0, height)
+      x_2 = 0
+      y_2 = random.randint(0, height)
 
-    x_3 = random.randint(20, (height - random.randint(50, 200)))
-    y_3 = random.randint(0, (height - random.randint(50, 200)))
+      x_3 = random.randint(20, (height - random.randint(50, 200)))
+      y_3 = random.randint(0, (height - random.randint(50, 200)))
 
-    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
-  elif side == 2:
-    x_1 = width
-    y_1 = random.randint(0, height)
+      draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
+    elif side == 2:
+      x_1 = width
+      y_1 = random.randint(0, height)
 
-    x_2 = width
-    y_2 = y_1 - random.randint(50, 200)
+      x_2 = width
+      y_2 = y_1 - random.randint(50, 200)
 
-    x_3 = random.randint(20, (height + random.randint(50, 200)))
-    y_3 = random.randint(width, (height + random.randint(50, 200)))
+      x_3 = random.randint(20, (height + random.randint(50, 200)))
+      y_3 = random.randint(width, (height + random.randint(50, 200)))
 
-    draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
+      draw.polygon(((x_1, y_1), (x_2, y_2), (x_3, y_3)),fill=schemealt(), outline=0, width=shapewidth)
 
 def rotate():
   global art

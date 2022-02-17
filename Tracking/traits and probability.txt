@@ -4,3 +4,11 @@ Filters:
 
 Traits:
   Censorship: 50%
+
+Sharp: (More triangles)
+Bold Glitch Branches: (Glitch branches with higher width)
+Glyphs: (Shards with black outline, thicker width)
+
+Probabilty should be different traits modified
+(including colors), randomized, probabilitized
+and looking good
