@@ -25,3 +25,5 @@
     Colors should matchup and always look good with
     eachother. (Improved color system, color matching
     system.)
+
+    Darkness from the edges

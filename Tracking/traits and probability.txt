@@ -22,3 +22,5 @@ if mathtype1 == 1:
           start_y += y_dir
         elif mathtype2 == 2:
           start_y -= y_dir
+
+You can use the jumble code for stair direction change

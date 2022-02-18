@@ -32,7 +32,7 @@ r3 = random.randint(70, 255)
 r4 = random.randint(70, 255)
 r5 = random.randint(70, 255)
 
-colsel = random.randint(0, 2)
+colsel = 1 # random.randint(0, 2)
 monosel = random.randint(0, 1)
 
 if colsel == 0:
@@ -95,7 +95,7 @@ shapes = 90
 
 
 count = 1
-shapewidth = random.randint(1, 20)
+shapewidth = random.randint(20,25)
 
 art = Image.open('back.png')
 draw = ImageDraw.Draw(art)
