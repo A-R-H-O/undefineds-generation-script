@@ -95,7 +95,7 @@ shapes = 90
 
 
 count = 1
-shapewidth = random.randint(20,25)
+shapewidth = random.randint(1, 20)
 
 art = Image.open('back.png')
 draw = ImageDraw.Draw(art)
@@ -103,7 +103,7 @@ width, height = art.size
 
 # --- Traits --- #
 def glitchbranch():
-  for _ in range(0):
+  for _ in range(1):
     branch_count = random.randint(5, 15)
     for _ in range(branch_count):
       branch_pos = random.randint(0, width)
@@ -119,7 +119,7 @@ def shards():
     draw.rectangle((x_1, y_1, x_2, y_2), outline=0, width=10)
 
 def censorship():
-  for _ in range(0):
+  for _ in range(1):
     censor_count = random.randint(0, 5)
     for _ in range(censor_count):
       x_1 = random.randint(0, width)
@@ -165,7 +165,7 @@ def shape_drag():
 
 def triangles():
   # Left: 1, Right: 2
-  for _ in range(0):
+  for _ in range(2):
     side = random.randint(1, 2)
     if side == 1:
       x_1 = 0
