@@ -158,10 +158,14 @@ def shape_drag():
     else:
       mathtype1 = random.randint(1, 2)
       mathtype2 = random.randint(1, 2)
-      if f != dirchangeinterval:
+      if f < dirchangeinterval:
         draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
         start_x += x_dir
         start_y -= y_dir
+      elif f >= dirchangeinterval:
+        draw.rectangle((start_x, start_y, start_x + size, start_y - size), fill=schemealt(), outline=0, width=shapewidth)
+        start_x -= x_dir
+        start_y += y_dir
 
 def triangles():
   # Left: 1, Right: 2
