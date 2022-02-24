@@ -15,74 +15,79 @@ titles = [
 tokenname = f"{adjectives[random.randint(0, len(adjectives)-1)]} {titles[random.randint(0, len(titles)-1)]}"
 
 # Filter Selector
-artfilter = random.randint(1, 5)
-if artfilter != 5:
-  artfilter = 'col' #80% for Color
-  colrange = 4
-  totalrarity += 10
-else:
-  artfilter = 'mono' #20% for Monochrome
-  colrange = 3
-  totalrarity += 50
+def themeselection():
+  global artfilter, colsel
+
+  artfilter = random.randint(1, 5)
+  if artfilter != 5:
+    artfilter = 'col' #80% for Color
+    colrange = 4
+  else:
+    artfilter = 'mono' #20% for Monochrome
+    colrange = 3
 
 # --- Scheme Selector --- #
-r1 = random.randint(70, 255)
-r2 = random.randint(70, 255)
-r3 = random.randint(70, 255)
-r4 = random.randint(70, 255)
-r5 = random.randint(70, 255)
+  r1 = random.randint(70, 255)
+  r2 = random.randint(70, 255)
+  r3 = random.randint(70, 255)
+  r4 = random.randint(70, 255)
+  r5 = random.randint(70, 255)
 
-colsel = 1 # random.randint(0, 2)
-monosel = random.randint(0, 1)
+  colsel = random.randint(0, 1) # random.randint(0, 2)
+  monosel = random.randint(0, 1)
 
-if colsel == 0:
-  cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
-elif colsel == 1:
-  cols = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))]
-elif colsel == 2:
-  cols = [(115, 38, 38), (51, 23, 87), (212, 219, 66), (96, 147, 189), (48, 48, 48)]
-  # Red: 0, Purple: 1, Yellow: 2, Blue: 3, Gray: 4
+  if colsel == 0:
+    cols = [(r1, r2, r3), (r3, r1, r2), (r2, r1, r3), (r3, r1, r2), (r5, r5, r5)]
+  elif colsel == 1:
+    cols = [(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)), (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))]
 
-if monosel == 0:
-  monos = [(0, 0, 0), (255, 255, 255), (33, 33, 33), (112, 112, 112)]
-  # Black: 0, White: 1, Dark Gray: 2, Light Gray: 3
-elif monosel == 1:
   monos = [(r1, r1, r1), (r2, r2, r2), (r3, r3, r3), (r4, r4, r4)]
 
 
-rerollspecialty = 0
-firstcolsel = random.randint(0, colrange)
-secondcolsel = random.randint(0, colrange)
+  rerollspecialty = 0
+  firstcolsel = random.randint(0, colrange)
+  secondcolsel = random.randint(0, colrange)
 # Reroll Specialty grants special attribuite depending on the number of rerolls.
 
-while True:
-  if firstcolsel == secondcolsel:
-   secondcolsel = random.randint(0, colrange)
-   rerollspecialty += 1 
-  else:
-    break
+  while True:
+    if firstcolsel == secondcolsel:
+      secondcolsel = random.randint(0, colrange)
+      rerollspecialty += 1 
+    else:
+      break
 
-if artfilter == 'col':
-  firstcol = cols[firstcolsel]
-  secondcol = cols[secondcolsel]
-elif artfilter == 'mono':
-  firstcol = monos[firstcolsel]
-  secondcol= monos[secondcolsel]
+  if artfilter == 'col':
+    global firstcol 
+    firstcol = cols[firstcolsel]
+    global secondcol
+    secondcol = cols[secondcolsel]
+  elif artfilter == 'mono':
+    firstcol = monos[firstcolsel]
+    secondcol= monos[secondcolsel]
+
+  global count, shapewidth, art, draw, width, height
+
+  count = 10
+  shapewidth = random.randint(10, 30)
+  art = Image.open('back.png')
+  draw = ImageDraw.Draw(art)
+  width, height = art.size
+
+# --- Scheme Selector End --- #
 
 def schemealt():
-  c = random.randint(0, 1)
-  if c == 0:
-    return firstcol
-  elif c == 1:
-    return secondcol
-# --- Scheme Selector End --- #
+    c = random.randint(0, 1)
+    if c == 0:
+      return firstcol
+    elif c == 1:
+      return secondcol
 
 # -- Trait Selector --- #
 
 # Build trait selector when done with all the traits
 
 # --- Trait Selector End --- #
-shapes = 90
+shapes = 200
 # Looks good with 90 too. Experiment with different shape counts.
 # Shape count randomization would be perfect
 # Shape count => rarity and value
@@ -93,13 +98,7 @@ shapes = 90
 # If you set it to a really low number like 1-3-5 you could probably get some cool results.
 # Further experimentation is required.
 
-
-count = 1
-shapewidth = random.randint(1, 20)
-
-art = Image.open('back.png')
-draw = ImageDraw.Draw(art)
-width, height = art.size
+themeselection()
 
 # --- Traits --- #
 def glitchbranch():
@@ -207,7 +206,7 @@ def rotate():
 for f in range(count):
   art = Image.open('back.png')
   draw = ImageDraw.Draw(art)
-
+  themeselection()
   for _ in range(shapes):
     shape_drag()
     glitchbranch()
@@ -221,7 +220,7 @@ for f in range(count):
   art.save(f'nft{f + 1}.png')
 
   print(width, height)
-  print(rerollspecialty, firstcol, secondcol)
+  print(firstcol, secondcol)
   print(f"{tokenname} | {artfilter} | {shapewidth} | {colsel}")
   print(totalrarity)
   print(rotation)
