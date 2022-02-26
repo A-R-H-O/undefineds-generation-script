@@ -1,2 +1,2 @@
 # generation-script-grid
-Experimental grid format for generation.
+experimental grid format for generation.
