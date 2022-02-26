@@ -48,4 +48,6 @@ for y in range(GRID_DEM):
   current_y = y_space * y
   draw.rectangle((current_y + GRID_WIDTH, 0, current_y, height), fill=dash_color, outline=OUTLINE_COLOR)
 
+draw.rectangle((490, 50, 600, 3), fill=0, outline=(255, 255, 255))
+
 piece.save('grid.png')
