@@ -19,12 +19,13 @@ height = width
 piece = Image.new('RGB', (width, height), col(darkness=40))
 draw = ImageDraw.Draw(piece)
 
-grid_dem = 10
-x_space = round(width / grid_dem)
-y_space = round(height / grid_dem)
-
-
+GRID_DEM = random.randint(2, 20)
 IS_BLACK = True
+GRID_WIDTH = 10
+OUTLINE_COLOR = (255, 255, 255)
+
+x_space = round(width / GRID_DEM)
+y_space = round(height / GRID_DEM)
 
 # Draws X-Axis grid lines
 dash_color = [255, 255, 255]
@@ -34,17 +35,17 @@ if IS_BLACK:
 elif not IS_BLACK:
   dash_color = tuple(dash_color)
 
-for x in range(grid_dem):
+for x in range(GRID_DEM):
   if x == 0: x = 1
 
   current_x = x_space * x
-  draw.line((0, current_x, width, current_x), fill=dash_color)
+  draw.rectangle((0, current_x + GRID_WIDTH, width, current_x), fill=dash_color, outline=OUTLINE_COLOR)
 
 # Draws Y-Axis grid line
-for y in range(grid_dem):
+for y in range(GRID_DEM):
   if y == 0: y = 1
 
   current_y = y_space * y
-  draw.line((current_y, 0, current_y, height), fill=dash_color)
+  draw.rectangle((current_y + GRID_WIDTH, 0, current_y, height), fill=dash_color, outline=OUTLINE_COLOR)
 
 piece.save('grid.png')
