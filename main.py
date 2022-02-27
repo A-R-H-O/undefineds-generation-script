@@ -27,11 +27,19 @@ OUTLINE_COLOR = (255, 255, 255)
 x_space = round(width / GRID_DEM)
 y_space = round(height / GRID_DEM)
 
+
+# Creates array for grid
+grid = []
+placeholder = 0
+
+for _ in range (1, GRID_DEM * GRID_DEM):
+  grid.append([placeholder, placeholder])
+
 # Draws X-Axis grid lines
 dash_color = [255, 255, 255]
 
 if IS_BLACK:
-  dash_color = tuple([0, 0, 0])
+  dash_color = (0, 0, 0)
 elif not IS_BLACK:
   dash_color = tuple(dash_color)
 
@@ -51,3 +59,4 @@ for y in range(GRID_DEM):
 draw.rectangle((490, 50, 600, 3), fill=0, outline=(255, 255, 255))
 
 piece.save('grid.png')
+print(GRID_DEM, len(grid))
