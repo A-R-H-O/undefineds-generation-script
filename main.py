@@ -2,6 +2,8 @@ from PIL import Image, ImageDraw
 import random
 import math # Perlin Noise?
 
+# Tetris! Snake! Game!
+
 def col(brightness=0, darkness=0, black=False):
   if black:
     r = 0
