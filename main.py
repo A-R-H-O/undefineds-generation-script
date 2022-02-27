@@ -203,7 +203,7 @@ def rotate():
 # --- Traits End --- #
 
 # --- Generator --- #
-for f in range(count):
+for f in range(1):
   art = Image.open('back.png')
   draw = ImageDraw.Draw(art)
   themeselection()
